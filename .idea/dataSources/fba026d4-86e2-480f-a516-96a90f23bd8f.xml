@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="CurrencyConverter">
+  <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.52">
+    <root id="1">
+      <ServerVersion>16.2</ServerVersion>
+      <StartupTime>1715362948</StartupTime>
+    </root>
+    <database id="2" parent="1" name="CurrencyConverterDB ">
+      <ObjectId>24826</ObjectId>
+      <OwnerName>currency_admin</OwnerName>
+    </database>
+    <database id="3" parent="1" name="azure_maintenance">
+      <ObjectId>16384</ObjectId>
+      <OwnerName>azuresu</OwnerName>
+    </database>
+    <database id="4" parent="1" name="azure_sys">
+      <ObjectId>24601</ObjectId>
+      <OwnerName>azuresu</OwnerName>
+    </database>
+    <database id="5" parent="1" name="postgres">
+      <Comment>default administrative connection database</Comment>
+      <Current>1</Current>
+      <ObjectId>5</ObjectId>
+      <OwnerName>azure_pg_admin</OwnerName>
+    </database>
+    <schema id="6" parent="2" name="currencyconverterschema">
+      <ObjectId>24827</ObjectId>
+      <StateNumber>1355</StateNumber>
+      <OwnerName>currency_admin</OwnerName>
+    </schema>
+    <schema id="7" parent="2" name="information_schema">
+      <ObjectId>13774</ObjectId>
+      <StateNumber>529</StateNumber>
+      <OwnerName>azuresu</OwnerName>
+    </schema>
+    <schema id="8" parent="2" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <ObjectId>11</ObjectId>
+      <StateNumber>523</StateNumber>
+      <OwnerName>azuresu</OwnerName>
+    </schema>
+    <schema id="9" parent="2" name="public">
+      <Comment>standard public schema</Comment>
+      <Current>1</Current>
+      <ObjectId>2200</ObjectId>
+      <StateNumber>778</StateNumber>
+      <OwnerName>azure_pg_admin</OwnerName>
+    </schema>
+    <schema id="10" parent="5" name="information_schema">
+      <ObjectId>13774</ObjectId>
+      <StateNumber>529</StateNumber>
+      <OwnerName>azuresu</OwnerName>
+    </schema>
+    <schema id="11" parent="5" name="pg_catalog">
+      <Comment>system catalog schema</Comment>
+      <ObjectId>11</ObjectId>
+      <StateNumber>523</StateNumber>
+      <OwnerName>azuresu</OwnerName>
+    </schema>
+    <schema id="12" parent="5" name="public">
+      <Comment>standard public schema</Comment>
+      <Current>1</Current>
+      <ObjectId>2200</ObjectId>
+      <StateNumber>807</StateNumber>
+      <OwnerName>azure_pg_admin</OwnerName>
+    </schema>
+  </database-model>
+</dataSource>

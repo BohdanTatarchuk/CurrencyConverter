@@ -3,17 +3,17 @@
 
 INSERT INTO UserC
 VALUES (
-    'Mattew', 'Mattew2006', 1
+    'Mattew', 'Mattew2006'
 );
 
  INSERT INTO UserC
 VALUES (
-    'Dima', 'Dimon2812', 2
+    'Dima', 'Dimon2812'
 );
 
 INSERT INTO UserC
 VALUES (
-    'Nazar', 'Madeto27', 3
+    'Nazar', 'Madeto27'
 );
 
 -- CURRENCY VALUES --
@@ -37,47 +37,47 @@ VALUES (
 -- converts_into VALUES --
 INSERT INTO converts_into
 VALUES (
-    1.034, 'EUR', 'USD', 1
+    1.034, 'EUR', 'USD'
 );
 
 INSERT INTO converts_into
 VALUES (
-    0.034, 'EUR', 'UAH', 2
+    0.034, 'EUR', 'UAH'
 );
 
 INSERT INTO converts_into
 VALUES (
-    1, 'EUR', 'EUR', 3
+    1, 'EUR', 'EUR'
 );
 
 INSERT INTO converts_into
 VALUES (
-    40.034, 'USD', 'UAH', 4
+    40.034, 'USD', 'UAH'
 );
 
 INSERT INTO converts_into
 VALUES (
-    1.073244, 'USD', 'EUR', 5
+    1.073244, 'USD', 'EUR'
 );
 
 INSERT INTO converts_into
 VALUES (
-    1.034, 'USD', 'USD', 6
+    1.034, 'USD', 'USD'
 );
 
 INSERT INTO converts_into
 VALUES (
-    1, 'UAH', 'UAH', 7
+    1, 'UAH', 'UAH'
 );
 
 INSERT INTO converts_into
 VALUES (
-    31, 'UAH', 'EUR', 8
+    31, 'UAH', 'EUR'
 );
 
 INSERT INTO converts_into
 VALUES (
-    0.0346, 'UAH', 'USD', 9
+    0.0346, 'UAH', 'USD'
 );
 
 -- converts_into VALUES --
@@ -90,4 +90,13 @@ VALUES (
 INSERT INTO ExchangeHistory
 VALUES (
     3, 8
+);
+
+INSERT INTO ExchangeHistory
+VALUES (
+    3, 8
+);
+INSERT INTO ExchangeHistory
+VALUES (
+    3, 2
 );

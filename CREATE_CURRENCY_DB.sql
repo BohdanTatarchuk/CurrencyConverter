@@ -1,64 +1,32 @@
 CREATE TABLE UserC (
-    login VARCHAR2(20) NOT NULL,
-    password VARCHAR2(20) NOT NULL,
-    user_id NUMBER(3) NOT NULL
+    login VARCHAR(20) NOT NULL,
+    password VARCHAR(20) NOT NULL,
+    user_id INTEGER GENERATED ALWAYS AS IDENTITY,
+    PRIMARY KEY (user_id)
 );
-
-ALTER TABLE UserC
-ADD CONSTRAINT userc_pk
-PRIMARY KEY (user_id);
-
-
 
 CREATE TABLE Currency (
-    currency_name VARCHAR2(20) NOT NULL, 
-    currency_id VARCHAR2(4) NOT NULL
+    currency_name VARCHAR(20) NOT NULL,
+    currency_id VARCHAR(4) NOT NULL,
+    PRIMARY KEY (currency_id)
 );
-
-ALTER TABLE Currency
-ADD CONSTRAINT currency_pk
-PRIMARY KEY (currency_id);
-
-
 
 CREATE TABLE converts_into (
-    rate NUMBER(8) NOT NULL,
-    currency_A VARCHAR2(4),
-    currency_B VARCHAR2(4),
-    exchange_id FLOAT(8) NOT NULL
+    rate FLOAT NOT NULL,
+    currency_A VARCHAR(4),
+    currency_B VARCHAR(4),
+    exchange_id INTEGER GENERATED ALWAYS AS IDENTITY,
+    FOREIGN KEY (currency_A) REFERENCES Currency(currency_id),
+    FOREIGN KEY (currency_B) REFERENCES Currency(currency_id),
+    PRIMARY KEY (exchange_id)
 );
-
-ALTER TABLE converts_into 
-ADD CONSTRAINT converts_into_fk1
-FOREIGN KEY (currency_A)
-REFERENCES Currency(currency_id);
-
-ALTER TABLE converts_into 
-ADD CONSTRAINT converts_into_fk2
-FOREIGN KEY (currency_B)
-REFERENCES Currency(currency_id);
-
-ALTER TABLE converts_into
-ADD CONSTRAINT converts_into_pk
-PRIMARY KEY (exchange_id);
-
-
 
 CREATE TABLE ExchangeHistory (
-    userID NUMBER(3),
-    exchangeID FLOAT(8)
+    user_id INTEGER,
+    exchange_id INTEGER,
+    request_id INTEGER GENERATED ALWAYS AS IDENTITY,
+    request_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES UserC(user_id),
+    FOREIGN KEY (exchange_id) REFERENCES converts_into(exchange_id),
+    PRIMARY KEY (request_id)
 );
-
-ALTER TABLE ExchangeHistory 
-ADD CONSTRAINT ExchangeHistory_fk1
-FOREIGN KEY (userID)
-REFERENCES UserC(user_id);
-
-ALTER TABLE ExchangeHistory 
-ADD CONSTRAINT ExchangeHistory_fk2
-FOREIGN KEY (exchangeID)
-REFERENCES converts_into(exchange_id);
-
-ALTER TABLE ExchangeHistory
-ADD CONSTRAINT ExchangeHistory_pk
-PRIMARY KEY (userID);
