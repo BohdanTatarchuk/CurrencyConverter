@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="SqlDialectMappings">
-    <file url="file://$PROJECT_DIR$/CLEAR_CURRENCY_DB.sql" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/CREATE_CURRENCY_DB.sql" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/DROP_CURRENCY_DB.sql" dialect="PostgreSQL" />
-    <file url="file://$PROJECT_DIR$/INSERT_CURRENCY_DB.sql" dialect="PostgreSQL" />
-  </component>
-</project>
