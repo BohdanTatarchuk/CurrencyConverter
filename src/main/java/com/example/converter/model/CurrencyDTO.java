@@ -2,11 +2,11 @@ package com.example.converter.model;
 
 public class CurrencyDTO {
 
-    private int id;
+    private String id;
 
     private String name;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
@@ -14,7 +14,7 @@ public class CurrencyDTO {
         return name;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -24,7 +24,7 @@ public class CurrencyDTO {
 
     public CurrencyDTO() {}
 
-    public CurrencyDTO(int id, String name) {
+    public CurrencyDTO(String id, String name) {
         this.id = id;
         this.name = name;
     }
