@@ -14,4 +14,6 @@ public interface CurrencyService {
     List<Currency> getAllCurrencies();
 
     void deleteCurrencyById(String id);
+
+    double convert(String currencyFrom, String currencyTo, double amount);
 }
