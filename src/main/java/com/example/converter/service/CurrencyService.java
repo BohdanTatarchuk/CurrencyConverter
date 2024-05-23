@@ -7,8 +7,6 @@ import java.util.Optional;
 
 public interface CurrencyService {
 
-    Currency createCurrency(Currency currency);
-
     Optional<Currency> getCurrencyById(String id);
 
     List<Currency> getAllCurrencies();
