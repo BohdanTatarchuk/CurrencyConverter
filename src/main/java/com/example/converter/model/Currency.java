@@ -28,3 +28,4 @@ public class Currency {
         this.name = name;
     }
 }
+//卍
