@@ -3,17 +3,21 @@ package com.example.converter.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table
+@Table(name = "converts_into", schema = "public")
 public class ConvertsInto
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "exchange_id")
     private int id;
 
+    @Column(name = "currency_a")
     private String currencyA;
 
+    @Column(name = "currency_b")
     private String currencyB;
 
+    @Column(name = "rate")
     private double exchangeRate;
 
     public ConvertsInto() {}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+<head>
+    <meta charset = "UTF-8"/>
+    <link rel = "stylesheet" href = "CConverter.css"/>
+    <title>Currency converter</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th></th>
+            <th>
+                <p>From</p>
+            </th>
+            <th>
+                <p>To</p>
+            </th>
+            <th></th>
+        </tr>
+        <tr>
+            <th>
+                <p>Amount</p>
+            </th>
+            <th style = "width: 25%;">
+                <select name="from" id="currency1">
+                    <option value = "USD"> USD </option>
+                    <option value = "EUR"> EUR </option>
+                    <option value = "UAH"> UAH </option>
+                    <option value = "PLN"> PLN </option>
+                </select>
+            </th>
+            <th style="width: 15%;">
+                <select name="to" id="currency2">
+                    <option value = "USD"> USD </option>
+                    <option value = "EUR"> EUR </option>
+                    <option value = "UAH"> UAH </option>
+                    <option value = "PLN"> PLN </option>
+                </select>
+            </th>
+            <th style = "width: 28%;">
+                <button>Evaluate</button>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <p>Exchange rate:</p>
+            </th>
+            <th>
+                <p>xxx</p>
+            </th>
+        </tr>
+    </table>
+</body>
+    <script src="CConverter.js"></script>
+</html>
