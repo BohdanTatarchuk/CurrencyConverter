@@ -6,7 +6,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "Currency", schema = "public")
+@Table(name = "currency", schema = "public")
 public class Currency {
 
     @Id
