@@ -15,7 +15,10 @@
               <node kind="schema" qname="@" />
             </node>
             <node kind="database" qname="CurrencyConverterDB ">
-              <node kind="schema" qname="currencyconverterschema" />
+              <node kind="schema">
+                <name qname="currencyconverterschema" />
+                <name qname="public" />
+              </node>
             </node>
             <node kind="database" qname="Currency Converter">
               <node kind="schema" negative="1" />
