@@ -3,18 +3,18 @@ package com.example.converter.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "UserC", schema = "public")
+@Table(name = "userc", schema = "public")
 public class User {
 
     @Id
-    @GeneratedValue (strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column (name = "user_id")
     private int id;
 
-    @Column(name = "login")
+    @Column (name = "login")
     private String login;
 
-    @Column(name = "password")
+    @Column (name = "password")
     private String password;
 
     public int getId() {

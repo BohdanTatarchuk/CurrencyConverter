@@ -16,14 +16,14 @@ public class UserConfig {
     CommandLineRunner lineRunner (UserRepository repository){
         return args -> {
             User mattew = new User("Mattew",
-                    "TGt7xfg7t13gg7");
+                    "db3iz1b3");
             User vlad = new User("Vlad",
                     "hih3gz98g4");
             User dima = new User("Dima",
                     "TGt73h9t7g7");
             User nazar = new User("Nazar",
                     "SEDRFGKLJjgh");
-            repository.saveAll(List.of(mattew, dima, vlad, nazar));
+            repository.saveAllAndFlush(List.of(mattew, dima, vlad, nazar));
         };
     }
 
