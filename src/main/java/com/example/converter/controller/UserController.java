@@ -23,7 +23,7 @@ public class UserController {
 
     @GetMapping("/{id}")
     public Optional<User> findById(@PathVariable int id) {
-        return service.findUserById(id);
+        return service.getUserById(id);
     }
 
     @DeleteMapping("/{id}")

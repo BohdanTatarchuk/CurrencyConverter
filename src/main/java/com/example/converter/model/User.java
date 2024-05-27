@@ -29,6 +29,14 @@ public class User {
         return login;
     }
 
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     protected User() {}
 
     public User(String login, String password) {

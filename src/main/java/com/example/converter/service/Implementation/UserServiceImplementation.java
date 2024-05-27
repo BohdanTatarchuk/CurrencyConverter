@@ -20,7 +20,7 @@ public class UserServiceImplementation implements UserService {
     }
 
     @Override
-    public Optional<User> findUserById(int id) {
+    public Optional<User> getUserById(int id) {
        userRepository.findById(id);
        return Optional.empty();
     }
@@ -34,4 +34,38 @@ public class UserServiceImplementation implements UserService {
     public void deleteUserById(int id) {
         userRepository.deleteById(id);
     }
+
+    @Override
+    public void saveUser(User user) {
+        userRepository.save(user);
+    }
+
+    @Override
+    public void deleteAllUsers(){
+        userRepository.deleteAll();
+    }
+
+    @Override
+    public void saveAllUsers(List<User> users){
+        userRepository.saveAll(users);
+    }
+
+    @Override
+    public void updateUserById(int id, User newUser){
+        if (userRepository.findById(id).isEmpty()) {
+            System.out.println("Error: User with id " + id + " not found");
+            return;
+        }
+        User oldUser = userRepository.findById(id).get();
+
+        if (!newUser.getLogin().isEmpty()) {
+            oldUser.setLogin(newUser.getLogin());
+        }
+        if (!newUser.getPassword().isEmpty()) {
+            oldUser.setPassword(newUser.getPassword());
+        }
+
+        userRepository.save(oldUser);
+    }
+
 }

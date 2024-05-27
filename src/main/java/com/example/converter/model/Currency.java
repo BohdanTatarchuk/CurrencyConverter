@@ -24,6 +24,14 @@ public class Currency {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     protected Currency() {}
 
     public Currency (String id, String name) {

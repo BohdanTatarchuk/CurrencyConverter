@@ -13,5 +13,14 @@ public interface CurrencyService {
 
     void deleteCurrencyById(String id);
 
+    void deleteAllCurrencies();
+
+    void updateCurrencyById(String id, Currency currency);
+
+    void saveCurrency(Currency currency);
+
+    void saveAllCurrencies(List<Currency> currencies);
+
     double convert(String currencyFrom, String currencyTo, double amount);
+
 }

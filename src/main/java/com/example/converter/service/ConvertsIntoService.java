@@ -12,4 +12,12 @@ public interface ConvertsIntoService {
     List<ConvertsInto> getAllConvertsInto();
 
     void deleteConvertsIntoById(int id);
+
+    void deleteAllConvertsInto();
+
+    void saveConvertsInto(ConvertsInto convertsInto);
+
+    void saveAllConvertsInto(List<ConvertsInto> convertsInto);
+
+    void updateConvertsInto(int id, ConvertsInto convertsInto);
 }
