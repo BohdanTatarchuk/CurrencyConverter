@@ -33,4 +33,32 @@ public class ConvertsIntoServiceImplementation implements ConvertsIntoService {
     public void deleteConvertsIntoById(int id) {
         convertsIntoRepository.deleteById(id);
     }
+
+    @Override
+    public void deleteAllConvertsInto() { convertsIntoRepository.deleteAll(); }
+
+    @Override
+    public void saveConvertsInto(ConvertsInto convertsInto) { convertsIntoRepository.save(convertsInto); }
+
+    @Override
+    public void saveAllConvertsInto(List<ConvertsInto> convertsInto) { convertsIntoRepository.saveAll(convertsInto); }
+
+    @Override
+    public void updateConvertsInto(int id, ConvertsInto newConvertsInto) {
+        if (convertsIntoRepository.findById(id).isEmpty()) {
+            System.out.println("Error: ConvertsInto with id " + id + " not found");
+            return;
+        }
+        ConvertsInto oldConvertsInto = convertsIntoRepository.findById(id).get();
+
+        if (!newConvertsInto.getCurrencyA().isEmpty()){
+            oldConvertsInto.setCurrencyA(newConvertsInto.getCurrencyA());
+        }
+        if (!newConvertsInto.getCurrencyB().isEmpty()){
+            oldConvertsInto.setCurrencyB(newConvertsInto.getCurrencyB());
+        }
+        if (newConvertsInto.getExchangeRate() != 0){
+            oldConvertsInto.setExchangeRate(newConvertsInto.getExchangeRate());
+        }
+    }
 }
