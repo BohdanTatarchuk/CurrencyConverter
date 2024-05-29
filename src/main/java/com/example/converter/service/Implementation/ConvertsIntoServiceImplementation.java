@@ -60,5 +60,6 @@ public class ConvertsIntoServiceImplementation implements ConvertsIntoService {
         if (newConvertsInto.getExchangeRate() != 0){
             oldConvertsInto.setExchangeRate(newConvertsInto.getExchangeRate());
         }
+        convertsIntoRepository.save(oldConvertsInto);
     }
 }
