@@ -35,8 +35,8 @@ public class UserConfig {
             convertsIntoServiceImplementation.saveAllConvertsInto(List.of(uah_usd));
             convertsIntoServiceImplementation.updateConvertsInto(1, new ConvertsInto("USD", "UAH", 40));
 
-            //currencyServiceImplementation.saveAllCurrencies(List.of(uah,usd)); //TODO: data is not updating
-            //currencyServiceImplementation.updateCurrencyById("UAH",new Currency("UAH", "dfpolgj"));
+            currencyServiceImplementation.saveAllCurrencies(List.of(uah,usd));
+            currencyServiceImplementation.updateCurrencyById("UAH",new Currency("UAH", "dfpolgj"));
 
             repository.saveAllUsers(List.of(mattew, dima, vlad, nazar));
             repository.updateUserById(1, new User("Sonia", "e4"));
