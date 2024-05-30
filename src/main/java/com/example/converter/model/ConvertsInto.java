@@ -59,4 +59,8 @@ public class ConvertsInto
     public void setCurrencyA(String currencyA) {
         this.currencyA = currencyA;
     }
+
+    public String convertsIntoToString() {
+        return "ConvertsInto with: " + currencyA + ", " + currencyB + ", " + exchangeRate;
+    }
 }
