@@ -1,7 +1,6 @@
 package com.example.converter.service.Implementation;
 
 import com.example.converter.model.Currency;
-import com.example.converter.model.User;
 import com.example.converter.repository.CurrencyRepository;
 import com.example.converter.service.CurrencyService;
 import org.springframework.beans.factory.annotation.Autowired;

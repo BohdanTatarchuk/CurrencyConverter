@@ -19,5 +19,7 @@ public interface ConvertsIntoService {
 
     void saveAllConvertsInto(List<ConvertsInto> convertsInto);
 
-    void updateConvertsInto(int id, ConvertsInto convertsInto);
+    void updateConvertsIntoById(int id, ConvertsInto convertsInto);
+
+    void updateAllConvertsInto(List<ConvertsInto> convertsInto);
 }
