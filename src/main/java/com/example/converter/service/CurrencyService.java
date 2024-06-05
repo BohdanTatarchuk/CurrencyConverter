@@ -21,6 +21,6 @@ public interface CurrencyService {
 
     void saveAllCurrencies(List<Currency> currencies);
 
-    double convert(String currencyFrom, String currencyTo, double amount);
+
 
 }

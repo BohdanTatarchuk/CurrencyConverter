@@ -22,4 +22,6 @@ public interface ConvertsIntoService {
     void updateConvertsIntoById(int id, ConvertsInto convertsInto);
 
     void updateAllConvertsInto(List<ConvertsInto> convertsInto);
+
+    double convert(String currencyFrom, String currencyTo, double amount);
 }

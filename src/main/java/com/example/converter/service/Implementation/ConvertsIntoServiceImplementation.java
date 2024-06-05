@@ -8,9 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class ConvertsIntoServiceImplementation implements ConvertsIntoService {
@@ -23,9 +21,9 @@ public class ConvertsIntoServiceImplementation implements ConvertsIntoService {
         this.convertsIntoRepository = convertsIntoRepository;
     }
 
+    @Override
     public Optional<ConvertsInto> getConvertsIntoById(int id) {
-        convertsIntoRepository.findById(id);
-        return Optional.empty();
+        return convertsIntoRepository.findById(id);
     }
 
     @Override
@@ -55,33 +53,41 @@ public class ConvertsIntoServiceImplementation implements ConvertsIntoService {
         }
         ConvertsInto oldConvertsInto = convertsIntoRepository.findById(id).get();
 
-        if (!newConvertsInto.getCurrencyA().isEmpty()){
             oldConvertsInto.setCurrencyA(newConvertsInto.getCurrencyA());
-        }
-        if (!newConvertsInto.getCurrencyB().isEmpty()){
+
             oldConvertsInto.setCurrencyB(newConvertsInto.getCurrencyB());
-        }
-        if (newConvertsInto.getExchangeRate() != 0){
+
             oldConvertsInto.setExchangeRate(newConvertsInto.getExchangeRate());
-        }
+
         convertsIntoRepository.save(oldConvertsInto);
     }
 
-    @SQL("ORDER BY exchange_id")
-    public void sort() {}
-
     @Override
     public void updateAllConvertsInto(List<ConvertsInto> newList) {
-        List<ConvertsInto> oldList = convertsIntoRepository.findAll();
+        for (int i = 0; i < 33; i++) {
+            updateConvertsIntoById(i + 1, newList.get(i));
+        }
+    }
 
-        for (int i = 0; i < oldList.size(); i++) {
-            if (newList.get(i).getExchangeRate() != oldList.get(i).getExchangeRate()) {
-                oldList.get(i).setExchangeRate(newList.get(i).getExchangeRate());
-            }
+    public double getExchangeRate(String currencyFrom, String currencyTo) {
+        HashMap<String,Double> map = new HashMap<>();
+        List<ConvertsInto> list = convertsIntoRepository.findAll();
+        for (ConvertsInto element : list) {
+            map.put(element.getCurrencyB(), element.getExchangeRate());
         }
 
-        sort();
+        return currencyTo.equals("USD") ?  1 / map.get(currencyFrom) : map.get(currencyTo);
+    }
 
-        convertsIntoRepository.saveAll(oldList);
+    @Override
+    public double convert(String currencyFrom, String currencyTo, double amount) {
+        if (currencyFrom.equals("USD") || currencyTo.equals("USD")) {
+            System.out.println(amount + " " + currencyFrom + " into " + currencyTo + " : " + amount * getExchangeRate(currencyFrom, currencyTo));
+            return amount * getExchangeRate(currencyFrom, currencyTo);
+        }
+        double result = convert(currencyFrom, "USD", amount);
+        result = convert("USD", currencyTo, result);
+        System.out.println(amount + " " + currencyFrom + " into " + currencyTo + " : " + result);
+        return result;
     }
 }

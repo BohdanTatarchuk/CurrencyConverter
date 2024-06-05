@@ -62,21 +62,4 @@ public class CurrencyServiceImplementation implements CurrencyService {
 
         currencyRepository.save(oldCurrency);
     }
-
-    public double getExchangeRate(String currencyFrom, String currencyTo) {
-        if (currencyTo.equals("USD")) {
-            return 0; //TODO
-        }
-        return 1; //TODO
-    }
-
-    @Override
-    public double convert(String currencyFrom, String currencyTo, double amount) {
-        if (currencyFrom.equals("USD") || currencyTo.equals("USD")) {
-            return amount * getExchangeRate(currencyFrom, currencyTo);
-        }
-        double result = convert(currencyFrom, "USD", amount);
-        result = convert("USD", currencyTo, result);
-        return result;
-    }
 }
