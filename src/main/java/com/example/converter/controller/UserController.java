@@ -2,16 +2,19 @@ package com.example.converter.controller;
 
 import com.example.converter.model.User;
 import com.example.converter.service.Implementation.UserServiceImplementation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
-@RequestMapping ("/api/v1/users")
+@RestController
+@RequestMapping (path = "/api/v1/users/")
 public class UserController {
 
     private final UserServiceImplementation service;
 
+    @Autowired
     public UserController(UserServiceImplementation service) {
         this.service = service;
     }
@@ -21,13 +24,28 @@ public class UserController {
         return service.getAllUsers();
     }
 
-    @GetMapping("/{id}")
-    public Optional<User> findById(@PathVariable int id) {
+    @GetMapping("{id}")
+    public Optional<User> findById(@PathVariable("id") int id) {
         return service.getUserById(id);
     }
 
-    @DeleteMapping("/{id}")
-    public void deleteById(@PathVariable int id) {
+    @DeleteMapping("deleteById={id}")
+    public void deleteById(@PathVariable("id") int id) {
         service.deleteUserById(id);
+    }
+
+    @DeleteMapping("deleteAll")
+    public void deleteAll() {
+        service.deleteAllUsers();
+    }
+
+    @PostMapping("save")
+    public void save(@RequestBody User user){
+        service.saveUser(user);
+    }
+
+    @PutMapping("updateById={id}")
+    public void updateById(@PathVariable("id") int id, @RequestBody User user) {
+        service.updateUserById(id, user);
     }
 }
