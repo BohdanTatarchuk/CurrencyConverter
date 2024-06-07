@@ -13,6 +13,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.converter.DataLayer.FetchData;
 import com.example.converter.R;
 import com.google.android.material.textfield.MaterialAutoCompleteTextView;
 import com.google.android.material.textfield.TextInputLayout;
@@ -40,18 +41,18 @@ public class MainActivity extends AppCompatActivity {
         TextView resultText = findViewById(R.id.result);
         Button convertButton = findViewById(R.id.convertButton);
 
-        convertButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (autoCompleteA.getText().toString().isEmpty()) {
-                    listA.setError("Please select an option");
-                } else if (autoCompleteB.getText().toString().isEmpty()) {
-                    listB.setError("Please select an option");
-                } else {
-                    Toast.makeText(MainActivity.this,
-                                          autoCompleteA.getText().toString() + " " + autoCompleteB.getText().toString(),
-                                          Toast.LENGTH_SHORT).show();
-                }
+        convertButton.setOnClickListener(view -> {
+            if (autoCompleteA.getText().toString().isEmpty()) {
+                listA.setError("Please select an option");
+            } else if (autoCompleteB.getText().toString().isEmpty()) {
+                listB.setError("Please select an option");
+            } else {
+                String currencyA = autoCompleteA.getText().toString();
+                String currencyB = autoCompleteB.getText().toString();
+                double amount = Double.parseDouble(inputField.getText().toString());
+
+                FetchData fetchData = new FetchData(data -> resultText.setText(data), currencyA, currencyB, amount);
+                fetchData.execute();
             }
         });
     }

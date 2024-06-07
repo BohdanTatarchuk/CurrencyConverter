@@ -59,7 +59,7 @@
         android:layout_height="48dp"
         android:layout_marginBottom="40dp"
         android:ems="10"
-        android:inputType="text"
+        android:inputType="numberDecimal"
         android:text="@string/enter_amount"
         app:layout_constraintBottom_toTopOf="@+id/result"
         app:layout_constraintEnd_toEndOf="parent"
