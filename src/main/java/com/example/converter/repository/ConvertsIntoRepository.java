@@ -9,6 +9,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ConvertsIntoRepository extends JpaRepository<ConvertsInto, Integer> {
 
-
-
 }

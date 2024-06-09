@@ -20,7 +20,7 @@ public class ConvertsIntoController {
         this.service = service;
     }
 
-    @GetMapping("")
+    @GetMapping("all")
     public List<ConvertsInto> getAllConvertsInto() {
         return service.getAllConvertsInto();
     }
@@ -28,6 +28,13 @@ public class ConvertsIntoController {
     @GetMapping("{id}")
     public Optional<ConvertsInto> getConvertsIntoById(@PathVariable("id") int id) {
         return service.getConvertsIntoById(id);
+    }
+
+    @GetMapping("")
+    public double getConversionRate(@RequestParam("from") String from,
+                                    @RequestParam("to")  String to,
+                                    @RequestParam("amount")  double amount) {
+        return service.convert(from, to, amount);
     }
 
     @DeleteMapping("{id}")
