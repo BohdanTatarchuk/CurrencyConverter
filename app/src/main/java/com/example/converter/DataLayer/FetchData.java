@@ -32,32 +32,22 @@ public class FetchData extends AsyncTask<Void, Void, String> {
     protected String doInBackground(Void... voids) {
 
         String data = "";
-        String result = "";
 
         try {
-            URL url = new URL("https://5b58-2001-871-237-ae68-3438-9e72-879c-11b.ngrok-free.app/api/v1/exchanges/1");
+            URL url = new URL("https://5539-2001-871-237-ae68-d574-12ac-66aa-4057.ngrok-free.app/api/v1/exchanges/?from=" + currencyA + "&to=" + currencyB + "&amount=" + amount);
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             InputStream inputStream = httpURLConnection.getInputStream();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
             String line = "";
 
-            while (line != null) {
-                line = bufferedReader.readLine();
-                data = data + line;
-            }
+            line = bufferedReader.readLine();
+            data = data + line;
 
-            JSONObject convertsInto = new JSONObject(data);
-
-            result = "Id: " + convertsInto.get("id") + "\n" +
-                            "currencyA: " + convertsInto.get("currencyA") + "\n" +
-                            "currencyB: " + convertsInto.get("currencyB") + "\n" +
-                            "exchangeRate: " + convertsInto.get("exchangeRate") + "\n";
-
-        } catch (IOException | JSONException e) {
-            e.printStackTrace();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
 
-        return result;
+        return data;
     }
 
     @Override
