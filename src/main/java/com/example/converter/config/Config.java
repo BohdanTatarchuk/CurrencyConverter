@@ -8,9 +8,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class Config {
 
-   // @Bean
-   // CommandLineRunner commandLine (ConvertsIntoServiceImplementation service)
-   // {
-   // }
+   /*@Bean
+   CommandLineRunner commandLine (ConvertsIntoServiceImplementation service)
+   {
+       return null;
+   }*/
 
 }
