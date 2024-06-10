@@ -3,16 +3,28 @@ package com.example.converter.service.Implementation;
 import com.example.converter.model.ConvertsInto;
 import com.example.converter.repository.ConvertsIntoRepository;
 import com.example.converter.service.ConvertsIntoService;
+import com.example.converter.service.RestService;
 import org.hibernate.annotations.processing.SQL;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.*;
 
 @Service
 public class ConvertsIntoServiceImplementation implements ConvertsIntoService {
 
+    @Value("${api.base.url}")
+    private String apiUrl;
+
+    @Value("${api.key}")
+    private String apiKey;
+
+    private final RestService restService = new RestService();
 
     private final ConvertsIntoRepository convertsIntoRepository;
 
@@ -90,4 +102,10 @@ public class ConvertsIntoServiceImplementation implements ConvertsIntoService {
         System.out.println(amount + " " + currencyFrom + " into " + currencyTo + " : " + result);
         return result;
     }
+
+    @Scheduled(fixedRate = 60000) //updates every minute
+    public void updateExchanges() throws IOException, URISyntaxException, InterruptedException {
+        updateAllConvertsInto(restService.getResult(restService.connect(apiKey,apiUrl)));
+    }
+
 }
