@@ -50,4 +50,4 @@ jobs:
           app-name: 'currencyConverterServer'
           slot-name: 'Production'
           package: '*.jar'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_A294BCDB1A1D455F8800A6E29E4F9B64 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9D94EB282AE743F2A1E44EF3585A8BE0 }}
