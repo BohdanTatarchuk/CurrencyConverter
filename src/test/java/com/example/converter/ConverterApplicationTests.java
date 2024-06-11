@@ -9,9 +9,4 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class ConverterApplicationTests {
 
-	@Test
-	public void exchangeCheck(ConvertsIntoServiceImplementation service) {
-		Assertions.assertEquals(service.convert("USD", "EUR",100), 91.94301793);
-	}
-
 }

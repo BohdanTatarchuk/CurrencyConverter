@@ -103,7 +103,7 @@ public class ConvertsIntoServiceImplementation implements ConvertsIntoService {
         return result;
     }
 
-    @Scheduled(fixedRate = 60000) //updates every minute
+    @Scheduled(fixedRate = 60000000)
     public void updateExchanges() throws IOException, URISyntaxException, InterruptedException {
         updateAllConvertsInto(restService.getResult(restService.connect(apiKey,apiUrl)));
     }

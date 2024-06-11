@@ -13,6 +13,4 @@ import java.net.URISyntaxException;
 @Configuration
 public class Config {
 
-
-
 }
