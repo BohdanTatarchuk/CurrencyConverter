@@ -2,7 +2,6 @@ package com.example.converter.controller;
 
 import com.example.converter.model.ConvertsInto;
 import com.example.converter.service.ConvertsIntoService;
-import com.example.converter.service.Implementation.ConvertsIntoServiceImplementation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,7 +15,7 @@ public class ConvertsIntoController {
     private final ConvertsIntoService service;
 
     @Autowired
-    public ConvertsIntoController(ConvertsIntoServiceImplementation service) {
+    public ConvertsIntoController(ConvertsIntoService service) {
         this.service = service;
     }
 

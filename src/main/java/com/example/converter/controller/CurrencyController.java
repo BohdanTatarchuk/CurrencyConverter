@@ -2,7 +2,6 @@ package com.example.converter.controller;
 
 import com.example.converter.model.Currency;
 import com.example.converter.service.CurrencyService;
-import com.example.converter.service.Implementation.CurrencyServiceImplementation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,7 +16,7 @@ public class CurrencyController {
     private final CurrencyService service;
 
     @Autowired
-    public CurrencyController(CurrencyServiceImplementation service) {
+    public CurrencyController(CurrencyService service) {
         this.service = service;
     }
 

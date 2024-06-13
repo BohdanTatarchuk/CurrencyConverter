@@ -1,24 +1,62 @@
 package com.example.converter.service;
 
 import com.example.converter.model.User;
+import com.example.converter.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface UserService {
+@Service
+public class UserService {
 
-    Optional<User> getUserById(int id);
+    private final UserRepository userRepository;
 
-    List<User> getAllUsers();
+    @Autowired
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
-    void deleteUserById(int id);
+    public Optional<User> getUserById(int id) {
+       return userRepository.findById(id);
+    }
 
-    void deleteAllUsers();
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
+    }
 
-    void saveUser(User user);
+    public void deleteUserById(int id) {
+        userRepository.deleteById(id);
+    }
 
-    void saveAllUsers(List<User> users);
+    public void saveUser(User user) {
+        userRepository.save(user);
+    }
 
-    void updateUserById(int id, User user);
+    public void deleteAllUsers(){
+        userRepository.deleteAll();
+    }
+
+    public void saveAllUsers(List<User> users){
+        userRepository.saveAll(users);
+    }
+
+    public void updateUserById(int id, User newUser){
+        if (userRepository.findById(id).isEmpty()) {
+            System.out.println("Error: User with id " + id + " not found");
+            return;
+        }
+        User oldUser = userRepository.findById(id).get();
+
+        if (!newUser.getLogin().isEmpty()) {
+            oldUser.setLogin(newUser.getLogin());
+        }
+        if (!newUser.getPassword().isEmpty()) {
+            oldUser.setPassword(newUser.getPassword());
+        }
+
+        userRepository.save(oldUser);
+    }
 
 }
