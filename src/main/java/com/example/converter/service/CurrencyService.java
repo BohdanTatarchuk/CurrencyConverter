@@ -20,8 +20,7 @@ public class CurrencyService {
 
 
     public Optional<Currency> getCurrencyById(String id) {
-        currencyRepository.findById(id);
-        return Optional.empty();
+        return currencyRepository.findById(id);
     }
 
 

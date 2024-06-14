@@ -38,10 +38,6 @@ public class UserService {
         userRepository.deleteAll();
     }
 
-    public void saveAllUsers(List<User> users){
-        userRepository.saveAll(users);
-    }
-
     public void updateUserById(int id, User newUser){
         if (userRepository.findById(id).isEmpty()) {
             System.out.println("Error: User with id " + id + " not found");

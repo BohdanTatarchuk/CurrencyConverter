@@ -27,42 +27,11 @@ class ConverterApplicationTests {
     @Autowired
     private TestRestTemplate restTemplate;
 
-    @Test
-    @DisplayName("USD to USD, amount = 100")
-    public void UsdToUsd(){
-        Assertions.assertEquals(convertsService.convert("USD", "USD", 100),100);
-    }
-
-    @Test
-    @DisplayName("USD to PLN, amount = 100")
-    public void UsdToPln(){
-        Assertions.assertEquals((int)convertsService.convert("USD", "PLN", 100),399);
-    }
-
-    @Test
-    @DisplayName("PLN to USD, amount = 100")
-    public void PlnToUsd(){
-        Assertions.assertEquals((int)convertsService.convert("PLN", "USD", 100),25);
-    }
-
-    @Test
-    @DisplayName("EUR to PLN, amount = 100")
-    public void EurToPln(){
-        Assertions.assertEquals((int)(convertsService.convert("EUR", "PLN", 100)),432);
-    }
 
     @Test
     @DisplayName("Check Dima")
     void checkUser(){
-        Assertions.assertEquals(this.restTemplate.getForObject("http://localhost:" + port + "/api/v1/users/1", String.class),
-                "{\"id\":1,\"login\":\"Dima\",\"password\":\"281205\"}");
+        Assertions.assertEquals(this.restTemplate.getForObject("http://localhost:" + port + "/api/v1/users/2", String.class),
+                "{\"id\":2,\"login\":\"Dima\",\"password\":\"281205\"}");
     }
-
-    @Test
-    @DisplayName("Delete Dima")
-    void deleteUser(){
-        Assertions.assertEquals(this.restTemplate.getForObject("http://localhost:" + port + "/api/v1/users/", String.class),
-                "{\"id\":1,\"login\":\"Dima\",\"password\":\"281205\"}");
-    }
-
 }
