@@ -1,0 +1,39 @@
+<resources>
+    <string name="title_activity_login">LoginActivity</string>
+
+    <!-- Login activity -->
+    <string name="welcome">Willkommen!</string>
+    <string name="question">Hast du noch kein Konto?</string>
+    <string name="prompt_email">Benutzername</string>
+    <string name="prompt_password">Kennwort</string>
+    <string name="sign_up_small">registieren</string>
+    <string name="sign_in">Anmelden</string>
+    <string name="username">Benutzername</string>
+    <string name="password">Kennwort</string>
+
+    <!-- Sing up activity -->
+    <string name="app_name">Currency Converter</string>
+    <string name="sign_up_capital">Registrieren</string>
+    <string name="error_empty">This field can not be empty!</string>
+
+    <!-- Main activity -->
+    <string name="rate">Konversionsrate</string>
+    <string name="history">Deine Anfragen</string>
+    <string name="error_select">Select currencies and enter an amount</string>
+
+    <!-- Settings activity -->
+    <string name="general">Allgemeine</string>
+    <string name="language">Sprache</string>
+    <string name="information">Kontoinformationen</string>
+    <string name="change_password">Kennworh ändern</string>
+    <string name="change_username">Benutzername ändern</string>
+    <string name="settings">Einstellungen</string>
+    
+    <!-- Temp -->
+    <string name="select_currency">select currency</string>
+    <string name="enter_amount">enter amount</string>
+    <string name="convert">Convert</string>
+    <string name="select_currency_b">Select currency B</string>
+    <string name="select_currency_a">Select currency A</string>
+
+</resources>

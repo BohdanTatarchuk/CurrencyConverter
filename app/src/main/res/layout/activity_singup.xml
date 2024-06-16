@@ -3,43 +3,119 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:background="@color/purple"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UILayer.SingUpActivity">
+    tools:context=".UILayer.LoginActivity">
 
-    <EditText
-        android:id="@+id/editTextTextPassword"
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="68dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/coin_dollar" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/coin_euro" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/coin_pound" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/coin_zl" />
+
+
+    <EditText
+        android:id="@+id/registerPasswordField"
+        android:layout_width="330dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/field"
         android:ems="10"
+        android:textColor="@color/purple"
+        android:hint="@string/password"
+        android:fontFamily="@font/kanit_medium"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
+        android:textColorHint="@color/purple"
+        android:textSize="22dp"
+        android:paddingLeft="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registerUsernameField" />
 
     <EditText
-        android:id="@+id/editTextText2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
+        android:id="@+id/registerUsernameField"
+        android:layout_width="330dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="150dp"
+        android:background="@drawable/field"
         android:ems="10"
+        android:textColor="@color/purple"
+        android:fontFamily="@font/kanit_medium"
+        android:textColorHint="@color/purple"
+        android:hint="@string/username"
         android:inputType="text"
-        android:text="Name"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword"
+        android:textSize="22dp"
+        android:paddingLeft="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="256dp"
-        android:text="sign up"
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="237dp"
+        android:layout_height="152dp"
+        android:layout_marginTop="84dp"
+        android:fontFamily="@font/kanit_extrabold"
+        android:includeFontPadding="false"
+        android:text="@string/app_name"
+        android:textColor="@color/white"
+        android:textSize="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/registerSingUpButton"
+        android:layout_width="330dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/field"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:clickable="false"
+        android:fontFamily="@font/kanit_medium"
+        android:includeFontPadding="false"
+        android:text="@string/sign_up_capital"
+        android:textColor="@color/purple"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/registerSingUpButton"
+        app:layout_constraintEnd_toEndOf="@+id/registerSingUpButton"
+        app:layout_constraintStart_toStartOf="@+id/registerSingUpButton"
+        app:layout_constraintTop_toTopOf="@+id/registerSingUpButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

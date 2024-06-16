@@ -1,9 +1,14 @@
 package com.example.converter.UILayer;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -35,15 +40,19 @@ public class MainActivity extends AppCompatActivity {
         MaterialAutoCompleteTextView autoCompleteA = findViewById(R.id.inputA);
         MaterialAutoCompleteTextView autoCompleteB = findViewById(R.id.inputB);
 
-        EditText inputField = findViewById(R.id.amount);
-        TextView resultText = findViewById(R.id.result);
-        Button convertButton = findViewById(R.id.convertButton);
+        EditText inputField = findViewById(R.id.mainAmount);
+        TextView resultText = findViewById(R.id.mainResult);
+        ImageButton convertButton = findViewById(R.id.mainConvertButton);
+        ImageButton backButton = findViewById(R.id.mainBackButton);
+        ImageButton settingsButton = findViewById(R.id.mainSettingsButton);
+
+        Context context = MainActivity.this;
 
         convertButton.setOnClickListener(view -> {
-            if (autoCompleteA.getText().toString().isEmpty()) {
-                listA.setError("Please select an option");
-            } else if (autoCompleteB.getText().toString().isEmpty()) {
-                listB.setError("Please select an option");
+            if ((autoCompleteA.getText().toString().isEmpty()) ||
+                    (autoCompleteB.getText().toString().isEmpty()) ||
+                    inputField.getText().toString().isEmpty()) {
+                Toast.makeText(context, R.string.error_select, Toast.LENGTH_SHORT).show();
             } else {
                 String currencyA = autoCompleteA.getText().toString();
                 String currencyB = autoCompleteB.getText().toString();
@@ -52,6 +61,16 @@ public class MainActivity extends AppCompatActivity {
                 FetchData fetchData = new FetchData(data -> resultText.setText(data), currencyA, currencyB, amount);
                 fetchData.execute();
             }
+        });
+
+        backButton.setOnClickListener(view -> {
+            Intent intent = new Intent(context, LoginActivity.class);
+            startActivity(intent);
+        });
+
+        settingsButton.setOnClickListener(view -> {
+            Intent intent = new Intent(context, SettingsActivity.class);
+            startActivity(intent);
         });
     }
 }

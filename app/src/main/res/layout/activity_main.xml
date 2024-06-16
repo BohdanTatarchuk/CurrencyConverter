@@ -3,89 +3,150 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:background="@color/purple"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".UILayer.MainActivity">
 
-    <Button
-        android:id="@+id/convertButton"
+
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="184dp"
-        android:text="@string/convert"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/coin_dollar" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/coin_euro" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/coin_pound" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:srcCompat="@drawable/coin_zl" />
+
+    <ImageView
+        android:id="@+id/mainExchangeWindow"
+        android:layout_width="376dp"
+        android:layout_height="326dp"
+        android:layout_marginTop="200dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.542"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/exchange_window" />
+
+    <ImageButton
+        android:id="@+id/mainBackButton"
+        android:layout_width="40dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/back_button"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/mainSettingsButton"
+        android:layout_width="30dp"
+        android:layout_height="21dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/settings_button"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageButton
+        android:id="@+id/mainConvertButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/convert_button"
+        app:layout_constraintBottom_toTopOf="@+id/dropdown_menuB"
+        app:layout_constraintEnd_toStartOf="@+id/mainConversionRateText"
+        app:layout_constraintStart_toStartOf="@+id/mainExchangeWindow"
+        app:layout_constraintTop_toBottomOf="@+id/dropdown_menuA" />
 
     <TextView
-        android:id="@+id/result"
+        android:id="@+id/mainConversionRateText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
-        android:text=""
+        android:fontFamily="@font/kanit_medium"
+        android:text="@string/rate"
+        android:textColor="@color/purple"
         android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/convertButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@id/mainExchangeWindow"
+        app:layout_constraintStart_toStartOf="@+id/mainAmount"
+        app:layout_constraintTop_toTopOf="@+id/mainExchangeWindow"
+        app:layout_constraintVertical_bias="0.47" />
 
     <TextView
-        android:id="@+id/currencyA"
+        android:id="@+id/mainConversionRate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:text="@string/select_currency_b"
-        android:textSize="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/dropdown_menuB"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.946"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/currencyB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:text="@string/select_currency_a"
-        android:textSize="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/dropdown_menuA"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.054"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:fontFamily="@font/kanit_medium"
+        android:text=""
+        android:textColor="@color/purple"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="@+id/mainAmount"
+        app:layout_constraintTop_toBottomOf="@+id/mainConversionRateText" />
 
     <EditText
-        android:id="@+id/amount"
-        android:layout_width="125dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="40dp"
+        android:id="@+id/mainAmount"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/purple_field"
         android:ems="10"
+        android:fontFamily="@font/kanit_medium"
         android:inputType="numberDecimal"
-        android:text="@string/enter_amount"
-        app:layout_constraintBottom_toTopOf="@+id/result"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:paddingLeft="15dp"
+        android:textColor="@color/purple"
+        android:layout_marginEnd="25dp"
+        android:hint="@string/enter_amount"
+        android:textColorHint="@color/purple"
+        app:layout_constraintEnd_toEndOf="@+id/mainExchangeWindow"
+        app:layout_constraintTop_toTopOf="@+id/mainExchangeWindow" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/dropdown_menuA"
         style="@style/Widget.Material3.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
-        android:layout_width="100sp"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
         android:layout_centerInParent="true"
         app:boxCornerRadiusBottomEnd="10sp"
         app:boxCornerRadiusBottomStart="10sp"
         app:boxCornerRadiusTopEnd="10sp"
         app:boxCornerRadiusTopStart="10sp"
         app:boxStrokeWidth="0sp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="25dp"
         app:boxStrokeWidthFocused="0sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/amount"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintLeft_toLeftOf="@id/mainExchangeWindow"
+        app:layout_constraintTop_toTopOf="@id/mainExchangeWindow">
 
         <com.google.android.material.textfield.MaterialAutoCompleteTextView
             android:id="@+id/inputA"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:inputType="none"
             app:simpleItems="@array/options_list" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -94,18 +155,18 @@
         android:id="@+id/dropdown_menuB"
         style="@style/Widget.Material3.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
         android:layout_width="100sp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_centerInParent="true"
+        android:layout_marginBottom="25dp"
+        android:layout_marginLeft="25dp"
         app:boxCornerRadiusBottomEnd="10sp"
         app:boxCornerRadiusBottomStart="10sp"
         app:boxCornerRadiusTopEnd="10sp"
         app:boxCornerRadiusTopStart="10sp"
         app:boxStrokeWidth="0sp"
         app:boxStrokeWidthFocused="0sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/amount"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintBottom_toBottomOf="@id/mainExchangeWindow"
+        app:layout_constraintStart_toStartOf="@+id/mainExchangeWindow">
 
         <com.google.android.material.textfield.MaterialAutoCompleteTextView
             android:id="@+id/inputB"
@@ -115,6 +176,21 @@
             app:simpleItems="@array/options_list" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <TextView
+        android:id="@+id/mainResult"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:background="@drawable/purple_field"
+        android:fontFamily="@font/kanit_medium"
+        android:textColor="@color/purple"
+        app:layout_constraintBottom_toBottomOf="@id/mainExchangeWindow"
+        app:layout_constraintEnd_toEndOf="@id/mainExchangeWindow"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="25dp"
+        android:text=""
+        android:textSize="18dp"
+        android:gravity="center"
+        android:paddingLeft="15dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
