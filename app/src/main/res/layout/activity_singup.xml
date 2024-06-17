@@ -41,7 +41,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/coin_zl" />
 
-
     <EditText
         android:id="@+id/registerPasswordField"
         android:layout_width="330dp"
