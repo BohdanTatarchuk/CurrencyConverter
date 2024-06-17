@@ -18,7 +18,6 @@ public class CurrencyService {
         this.currencyRepository = currencyRepository;
     }
 
-
     public Optional<Currency> getCurrencyById(String id) {
         return currencyRepository.findById(id);
     }

@@ -36,7 +36,7 @@ public class ConvertsIntoController {
         return service.convert(from, to, amount);
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("deleteById={id}")
     public void deleteConvertsIntoById(@PathVariable("id") int id) {
         service.deleteConvertsIntoById(id);
     }
