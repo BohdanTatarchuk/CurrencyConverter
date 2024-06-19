@@ -70,7 +70,6 @@ public class ConvertsIntoService {
         convertsIntoRepository.save(oldConvertsInto);
     }
 
-
     public void updateAllConvertsInto(List<ConvertsInto> newList) {
         for (int i = 0; i < 33; i++) {
             updateConvertsIntoById(i + 1, newList.get(i));

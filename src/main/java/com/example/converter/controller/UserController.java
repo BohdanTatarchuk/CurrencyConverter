@@ -24,14 +24,14 @@ public class UserController {
         return service.getAllUsers();
     }
 
-    @GetMapping("{id}")
-    public Optional<User> findById(@PathVariable("id") int id) {
-        return service.getUserById(id);
+    @GetMapping("{login}")
+    public Optional<User> findByLogin(@PathVariable("login") String login) {
+        return service.getUserByLogin(login);
     }
 
-    @DeleteMapping("deleteById={id}")
-    public void deleteById(@PathVariable("id") int id) {
-        service.deleteUserById(id);
+    @DeleteMapping("deleteByLogin={login}")
+    public void deleteByLogin(@PathVariable("login") String login) {
+        service.deleteUserByLogin(login);
     }
 
     @DeleteMapping("deleteAll")
@@ -44,8 +44,8 @@ public class UserController {
         service.saveUser(user);
     }
 
-    @PutMapping("updateById={id}")
-    public void updateById(@PathVariable("id") int id, @RequestBody User user) {
-        service.updateUserById(id, user);
+    @PutMapping("updateByLogin={login}")
+    public void updateByLogin(@PathVariable("login") String login, @RequestBody User user) {
+        service.updateUserByLogin(login, user);
     }
 }

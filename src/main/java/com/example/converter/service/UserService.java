@@ -18,16 +18,16 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public Optional<User> getUserById(int id) {
-       return userRepository.findById(id);
+    public Optional<User> getUserByLogin(String login) {
+       return userRepository.findById(login);
     }
 
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
 
-    public void deleteUserById(int id) {
-        userRepository.deleteById(id);
+    public void deleteUserByLogin(String login) {
+        userRepository.deleteById(login);
     }
 
     public void saveUser(User user) {
@@ -38,12 +38,13 @@ public class UserService {
         userRepository.deleteAll();
     }
 
-    public void updateUserById(int id, User newUser){
-        if (userRepository.findById(id).isEmpty()) {
-            System.out.println("Error: User with id " + id + " not found");
+    public void updateUserByLogin(String login, User newUser){
+        if (userRepository.findById(login).isEmpty()) {
+            System.out.println("Error: User with login " + login + " not found");
             return;
         }
-        User oldUser = userRepository.findById(id).get();
+
+        User oldUser = userRepository.findById(login).get();
 
         if (!newUser.getLogin().isEmpty()) {
             oldUser.setLogin(newUser.getLogin());

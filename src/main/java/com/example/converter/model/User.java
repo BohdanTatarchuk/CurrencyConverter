@@ -5,21 +5,12 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "userc", schema = "public")
 public class User {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column (name = "user_id")
-    private int id;
-
     @Column (name = "login")
     private String login;
 
     @Column (name = "password")
     private String password;
-
-    public int getId() {
-        return id;
-    }
 
     public String getPassword() {
         return password;

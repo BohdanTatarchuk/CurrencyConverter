@@ -8,7 +8,6 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "currency", schema = "public")
 public class Currency {
-
     @Id
     @Column(name = "currency_id")
     private String id;

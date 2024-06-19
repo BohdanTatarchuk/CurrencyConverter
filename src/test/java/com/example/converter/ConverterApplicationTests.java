@@ -2,9 +2,8 @@ package com.example.converter;
 
 import com.example.converter.service.ConvertsIntoService;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import com.example.converter.service.ExchangeHistoryService;
+import com.example.converter.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,23 +14,31 @@ import org.springframework.boot.test.web.server.LocalServerPort;
 class ConverterApplicationTests {
 
     private final ConvertsIntoService convertsService;
+    private final ExchangeHistoryService exchangeHistoryService;
+    private final UserService userService;
 
     @LocalServerPort
     private int port;
 
     @Autowired
-    public ConverterApplicationTests(ConvertsIntoService convertsService) {
+    public ConverterApplicationTests(ConvertsIntoService convertsService, ExchangeHistoryService exchangeHistoryService, UserService userService) {
         this.convertsService = convertsService;
+        this.exchangeHistoryService = exchangeHistoryService;
+        this.userService = userService;
     }
 
     @Autowired
     private TestRestTemplate restTemplate;
 
+    //@Test
+    //public void test(){
+    //    LocalDateTime localDateTime = LocalDateTime.now();
+    //    ExchangeHistory exchangeHistory = new ExchangeHistory(
+    //            userService.getUserById(1),
+    //            convertsService.getConvertsIntoById(1),
+    //            localDateTime
+    //    );
+    //    exchangeHistoryService.saveExchangeHistory(exchangeHistory);
+    //}
 
-    @Test
-    @DisplayName("Check Dima")
-    void checkUser(){
-        Assertions.assertEquals(this.restTemplate.getForObject("http://localhost:" + port + "/api/v1/users/2", String.class),
-                "{\"id\":2,\"login\":\"Dima\",\"password\":\"281205\"}");
-    }
 }
