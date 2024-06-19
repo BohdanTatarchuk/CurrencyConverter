@@ -4,17 +4,18 @@
     <!-- Login activity -->
     <string name="welcome">Welcome!</string>
     <string name="question">Do not have an account yet?</string>
-    <string name="prompt_email">username</string>
-    <string name="prompt_password">password</string>
     <string name="sign_up_small">sign up</string>
     <string name="sign_in">Sign in</string>
     <string name="username">username</string>
     <string name="password">password</string>
+    <string name="password_error" tools:ignore="MissingTranslation">Wrong password!</string>
 
     <!-- Sing up activity -->
     <string name="app_name">Currency Converter</string>
     <string name="sign_up_capital">Sign up</string>
     <string name="error_empty">Password and username fields can not be empty!</string>
+    <string name="error_register" tools:ignore="MissingTranslation">User already exists!</string>
+    <string name="success_register" tools:ignore="MissingTranslation">Successful registration</string>
 
     <!-- Main activity -->
     <string name="rate">conversion rate</string>
@@ -28,12 +29,5 @@
     <string name="change_password">change password</string>
     <string name="change_username">change username</string>
     <string name="settings">Settings</string>
-
-    <!-- Temp -->
-    <string name="select_currency">select currency</string>
-    <string name="enter_amount">enter amount</string>
-    <string name="convert">Convert</string>
-    <string name="select_currency_b">Select currency B</string>
-    <string name="select_currency_a">Select currency A</string>
 
 </resources>

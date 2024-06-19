@@ -35,8 +35,6 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        TextInputLayout listA = findViewById(R.id.dropdown_menuA);
-        TextInputLayout listB = findViewById(R.id.dropdown_menuB);
         MaterialAutoCompleteTextView autoCompleteA = findViewById(R.id.inputA);
         MaterialAutoCompleteTextView autoCompleteB = findViewById(R.id.inputB);
 

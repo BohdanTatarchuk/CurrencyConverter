@@ -4,8 +4,6 @@
     <!-- Login activity -->
     <string name="welcome">Willkommen!</string>
     <string name="question">Hast du noch kein Konto?</string>
-    <string name="prompt_email">Benutzername</string>
-    <string name="prompt_password">Kennwort</string>
     <string name="sign_up_small">registieren</string>
     <string name="sign_in">Anmelden</string>
     <string name="username">Benutzername</string>
