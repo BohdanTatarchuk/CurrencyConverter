@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -16,11 +17,16 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.converter.DataLayer.UserLogin;
+import com.example.converter.DataLayer.UserRepository;
 import com.example.converter.R;
 
 public class LoginActivity extends AppCompatActivity {
 
-    String gotPassword = "";
+    String pass;
+
+    String name;
+
+    Context context = LoginActivity.this;
 
     @SuppressLint("ResourceAsColor")
     @Override
@@ -39,8 +45,6 @@ public class LoginActivity extends AppCompatActivity {
         EditText passwordFiled = findViewById(R.id.loginPasswordField);
         EditText usernameFiled = findViewById(R.id.loginUsernameField);
 
-        Context context = LoginActivity.this;
-
         buttonSingUp.setOnClickListener(view -> {
             Intent intent = new Intent(context, SingUpActivity.class);
             startActivity(intent);
@@ -53,41 +57,36 @@ public class LoginActivity extends AppCompatActivity {
             } else {
                 String username = usernameFiled.getText().toString();
                 String password = passwordFiled.getText().toString();
+                pass = password;
+                name = username;
 
-                boolean success;
-
-                UserLogin userLogin = new UserLogin(this::setPassword, username, password);
-                userLogin.execute();
-
-                success = checkPassword(password, gotPassword);
-
-                if (success) {
-                    Intent intent = new Intent(context, MainActivity.class);
-                    startActivity(intent);
-                } else {
-                    //TODO make better error message
-                    /*passwordFiled.setHintTextColor(R.color.red);
-                    passwordFiled.setHint(R.string.password_error);
-                    try {
-                        wait(10000);
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
-                    }
-                    passwordFiled.setHint(R.string.password);
-                    passwordFiled.setHintTextColor(R.color.purple);*/
-
-                    Toast.makeText(context, R.string.password_error, Toast.LENGTH_SHORT).show();
-                }
+                new UserRepository(this::setExists, username).execute();
             }
         });
     }
 
-    public boolean checkPassword(String password, String gotPassword) {
-        if (gotPassword.equals(null)) return false;
-        return password.equals(gotPassword);
+    public void setExists(String userExists) {
+        boolean exists = userExists.equals("true");
+
+        if (!exists) {
+            Toast.makeText(context, R.string.user_not_exists, Toast.LENGTH_SHORT).show();
+        } else {
+            new UserLogin(this::setAccepted, name, pass).execute();
+        }
+
+        Log.e("exists", String.valueOf(exists));
     }
 
-    public void setPassword(String password) {
-        gotPassword = password;
+    public void setAccepted(String check) {
+        boolean checkPass = check.equals("true");
+
+        Log.e("checkPass: ", String.valueOf(checkPass));
+
+        if (checkPass) {
+            Intent intent = new Intent(context, MainActivity.class);
+            startActivity(intent);
+        } else {
+            Toast.makeText(context, R.string.password_error, Toast.LENGTH_SHORT).show();
+        }
     }
 }

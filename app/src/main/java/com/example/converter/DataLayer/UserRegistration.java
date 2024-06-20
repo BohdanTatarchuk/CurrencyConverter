@@ -7,11 +7,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedOutputStream;
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -19,8 +16,8 @@ import java.nio.charset.StandardCharsets;
 
 public class UserRegistration extends AsyncTask<Void, Void, String> {
 
-    private String username;
-    private String password;
+    private final String username;
+    private final String password;
 
     public UserRegistration(String password, String username) {
         this.password = password;
@@ -54,8 +51,8 @@ public class UserRegistration extends AsyncTask<Void, Void, String> {
             Log.e("Connection code: ", String.valueOf(code));
 
             connection.connect();
-
         } catch (IOException | JSONException e) {
+            Log.e("UserRegistration", "Error: " + e.getMessage(), e);
             throw new RuntimeException(e);
         }
 

@@ -16,10 +16,10 @@ import java.net.URL;
 
 public class FetchData extends AsyncTask<Void, Void, String> {
 
-    private FetchDataCallback callback;
-    private String currencyA;
-    private String currencyB;
-    private double amount;
+    private final FetchDataCallback callback;
+    private final String currencyA;
+    private final String currencyB;
+    private final double amount;
 
     public FetchData(FetchDataCallback callback, String currencyA, String currencyB, double amount) {
         this.callback = callback;
@@ -30,7 +30,6 @@ public class FetchData extends AsyncTask<Void, Void, String> {
 
     @Override
     protected String doInBackground(Void... voids) {
-
         String data = "";
 
         try {

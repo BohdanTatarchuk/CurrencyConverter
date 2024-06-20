@@ -3,9 +3,6 @@ package com.example.converter.DataLayer;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,16 +10,15 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class UserLogin extends AsyncTask<Void, Void, String> {
+public class UserRepository extends AsyncTask<Void, Void, String> {
 
     private final UserLoginCallback callback;
     private final String username;
-    private final String password;
 
-    public UserLogin(UserLoginCallback callback, String username, String password) {
+
+    public UserRepository(UserLoginCallback callback, String username) {
         this.callback = callback;
         this.username = username;
-        this.password = password;
     }
 
     @Override
@@ -30,7 +26,6 @@ public class UserLogin extends AsyncTask<Void, Void, String> {
 
         String data = "";
         String result;
-        String receivedPassword;
         HttpURLConnection connection;
         InputStream inputStream;
         BufferedReader bufferedReader;
@@ -49,7 +44,7 @@ public class UserLogin extends AsyncTask<Void, Void, String> {
                 inputStream = connection.getErrorStream();
             }
 
-            Log.e("CodeLogin", String.valueOf(responseCode));
+            Log.e("CodeCheck", String.valueOf(responseCode));
 
             bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
             String line = "";
@@ -57,21 +52,18 @@ public class UserLogin extends AsyncTask<Void, Void, String> {
                 data += line;
             }
 
-            JSONObject obj = new JSONObject(data);
-            receivedPassword = obj.getString("password");
-
-            Log.e("Received password: ", receivedPassword);
-
-            if (checkPassword(password, receivedPassword)) {
-                result = "true";
-            } else {
+            if(data.isEmpty() || data.equals("null")) {
                 result = "false";
+            } else {
+                result = "true";
             }
+
+            Log.e("User exists", result);
 
             inputStream.close();
             bufferedReader.close();
             connection.disconnect();
-        } catch (IOException | JSONException e) {
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
@@ -82,9 +74,5 @@ public class UserLogin extends AsyncTask<Void, Void, String> {
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
         callback.onUserLoginComplete(result);
-    }
-
-    public boolean checkPassword(String passwordA, String passwordB) {
-        return passwordA.equals(passwordB);
     }
 }

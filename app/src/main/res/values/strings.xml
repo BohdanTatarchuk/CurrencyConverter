@@ -9,6 +9,8 @@
     <string name="username">username</string>
     <string name="password">password</string>
     <string name="password_error" tools:ignore="MissingTranslation">Wrong password!</string>
+    <string name="user_not_exists" tools:ignore="MissingTranslation">User with such username does not exist</string>
+
 
     <!-- Sing up activity -->
     <string name="app_name">Currency Converter</string>
@@ -16,6 +18,11 @@
     <string name="error_empty">Password and username fields can not be empty!</string>
     <string name="error_register" tools:ignore="MissingTranslation">User already exists!</string>
     <string name="success_register" tools:ignore="MissingTranslation">Successful registration</string>
+    <string name="password_is_too_long" translatable="false">Password is too long</string>
+    <string name="no_lower_case_characters" translatable="false">No lower case characters</string>
+    <string name="no_upper_case_characters" translatable="false">No upper case characters</string>
+    <string name="no_numbers" translatable="false">No numbers</string>
+    <string name="no_special_characters" translatable="false">No special characters</string>
 
     <!-- Main activity -->
     <string name="rate">conversion rate</string>
