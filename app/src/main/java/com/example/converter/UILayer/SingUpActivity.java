@@ -112,6 +112,7 @@ public class SingUpActivity extends AppCompatActivity {
         if (!specialChars) {
             Toast.makeText(context, R.string.no_special_characters, Toast.LENGTH_SHORT).show();
         }
+
         return false;
     }
 }
