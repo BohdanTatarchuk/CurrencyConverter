@@ -128,33 +128,38 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/dropdown_menuA"
         style="@style/Widget.Material3.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
+        android:layout_width="115dp"
+        android:layout_height="70dp"
         android:layout_centerInParent="true"
         app:boxCornerRadiusBottomEnd="10sp"
         app:boxCornerRadiusBottomStart="10sp"
         app:boxCornerRadiusTopEnd="10sp"
         app:boxCornerRadiusTopStart="10sp"
+        android:background="@color/white"
         app:boxStrokeWidth="0sp"
         android:layout_marginLeft="25dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="5dp"
         app:boxStrokeWidthFocused="0sp"
         app:layout_constraintLeft_toLeftOf="@id/mainExchangeWindow"
         app:layout_constraintTop_toTopOf="@id/mainExchangeWindow">
 
         <com.google.android.material.textfield.MaterialAutoCompleteTextView
             android:id="@+id/inputA"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/white"
+            android:textSize="18dp"
+            android:fontFamily="@font/montserrat_medium"
             android:inputType="none"
+            android:textColor="@color/purple"
             app:simpleItems="@array/options_list" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/dropdown_menuB"
         style="@style/Widget.Material3.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
-        android:layout_width="100sp"
-        android:layout_height="50dp"
+        android:layout_width="115sp"
+        android:layout_height="70dp"
         android:layout_centerInParent="true"
         android:layout_marginBottom="25dp"
         android:layout_marginLeft="25dp"
@@ -169,8 +174,12 @@
 
         <com.google.android.material.textfield.MaterialAutoCompleteTextView
             android:id="@+id/inputB"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="18dp"
+            android:textColor="@color/purple"
+            android:fontFamily="@font/montserrat_medium"
+            android:background="@color/white"
             android:inputType="none"
             app:simpleItems="@array/options_list" />
     </com.google.android.material.textfield.TextInputLayout>

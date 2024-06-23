@@ -3,6 +3,7 @@ package com.example.converter.UILayer;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.EditText;
@@ -23,8 +24,14 @@ import com.example.converter.R;
 public class LoginActivity extends AppCompatActivity {
 
     String pass;
-
     String name;
+
+    private static final String PREFS_NAME = "preferences";
+    private static final String PREF_UNAME = "Username";
+    private static final String PREF_PASSWORD = "Password";
+
+    private final String defaultUnameValue = "";
+    private final String defaultPasswordValue = "";
 
     Context context = LoginActivity.this;
 
@@ -44,6 +51,8 @@ public class LoginActivity extends AppCompatActivity {
         ImageButton buttonSingIn = findViewById(R.id.loginSingInButton);
         EditText passwordFiled = findViewById(R.id.loginPasswordField);
         EditText usernameFiled = findViewById(R.id.loginUsernameField);
+
+        loadPreferences();
 
         buttonSingUp.setOnClickListener(view -> {
             Intent intent = new Intent(context, SingUpActivity.class);
@@ -84,9 +93,51 @@ public class LoginActivity extends AppCompatActivity {
 
         if (checkPass) {
             Intent intent = new Intent(context, MainActivity.class);
+            savePreferences();
             startActivity(intent);
         } else {
             Toast.makeText(context, R.string.password_error, Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void savePreferences() {
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME,
+                Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = settings.edit();
+
+        Log.e("Saved name", name);
+        Log.e("Saved password", pass);
+        editor.putString(PREF_UNAME, name);
+        editor.putString(PREF_PASSWORD, pass);
+        editor.apply();
+    }
+
+    private void loadPreferences() {
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME,
+                Context.MODE_PRIVATE);
+
+        EditText passwordFiled = findViewById(R.id.loginPasswordField);
+        EditText usernameFiled = findViewById(R.id.loginUsernameField);
+
+        name = settings.getString(PREF_UNAME, defaultUnameValue);
+        pass = settings.getString(PREF_PASSWORD, defaultPasswordValue);
+
+        passwordFiled.setText(pass);
+        usernameFiled.setText(name);
+
+        Log.e("Load name", name);
+        Log.e("Load password", pass);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        savePreferences();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        loadPreferences();
     }
 }

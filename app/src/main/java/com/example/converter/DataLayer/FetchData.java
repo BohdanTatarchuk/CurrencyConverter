@@ -13,6 +13,7 @@ import java.io.InputStreamReader;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.DecimalFormat;
 
 public class FetchData extends AsyncTask<Void, Void, String> {
 
@@ -46,12 +47,18 @@ public class FetchData extends AsyncTask<Void, Void, String> {
             throw new RuntimeException(e);
         }
 
-        return data;
+        return round(data);
     }
 
     @Override
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
         callback.onFetchDataComplete(result);
+    }
+
+    public static String round(String number){
+        double res = Double.parseDouble(number);
+        DecimalFormat df = new DecimalFormat("#.###");
+        return df.format(res);
     }
 }

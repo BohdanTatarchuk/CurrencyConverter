@@ -110,7 +110,7 @@
         android:includeFontPadding="false"
         android:text="@string/sign_up_capital"
         android:textColor="@color/purple"
-        android:textSize="25dp"
+        android:textSize="22dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/registerSingUpButton"
         app:layout_constraintEnd_toEndOf="@+id/registerSingUpButton"

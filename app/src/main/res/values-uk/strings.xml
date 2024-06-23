@@ -2,22 +2,32 @@
     <string name="title_activity_login">LoginActivity</string>
 
     <!-- Login activity -->
-    <string name="welcome">Ласкаво просимо!</string>
-    <string name="question">Ще не маєте облікового запису?</string>
+    <string name="welcome">Вітаємо!</string>
+    <string name="question">Ще не маєте акаунтy?</string>
     <string name="sign_up_small">зареєструватися</string>
     <string name="sign_in">yвійти</string>
     <string name="username">ім\'я користувача</string>
     <string name="password">пароль</string>
+    <string name="password_error">Неправильний пароль!</string>
+    <string name="user_not_exists">Користувача з таким ім\'ям не існує</string>
 
     <!-- Sing up activity -->
     <string name="app_name">Currency Converter</string>
     <string name="sign_up_capital">Зареєструватися</string>
-    <string name="error_empty">Поля "Пароль" та "Ім'я користувача" не можуть бути порожніми!</string>
+    <string name="error_register">Користувач вже існує!</string>
+    <string name="success_register">Успішна реєстрація</string>
+    <string name="password_is_too_long">Пароль занадто довгий</string>
+    <string name="password_is_too_short">Пароль занадто короткий</string>
+    <string name="no_lower_case_characters">Немає малих літер</string>
+    <string name="no_upper_case_characters">Немає великих літер</string>
+    <string name="no_numbers">Немає цифр</string>
+    <string name="no_special_characters">Немає спеціальних символів</string>
 
     <!-- Main activity -->
-    <string name="rate">коефіцієнт конверсії</string>
+    <string name="rate">кyрс конверсії</string>
     <string name="history">Історія ваших запитів</string>
     <string name="error_select">Виберіть валюту та введіть суму</string>
+    <string name="error_empty">Поля "Пароль" та "Ім'я користувача" не можуть бути порожніми!</string>
 
     <!-- Settings activity -->
     <string name="general">Загальне</string>

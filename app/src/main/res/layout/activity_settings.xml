@@ -10,11 +10,12 @@
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="410dp"
+        android:layout_width="match_parent"
         android:layout_height="600dp"
         android:background="@drawable/settings_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
@@ -30,10 +31,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/kanit_medium"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/montserrat_medium"
         android:text="@string/settings"
         android:textColor="@color/white"
-        android:layout_marginTop="5dp"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,10 +46,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="25dp"
-        android:fontFamily="@font/kanit_bold"
+        android:fontFamily="@font/montserrat_bold"
         android:text="@string/general"
         android:textColor="@color/white"
-        android:textSize="30dp"
+        android:textSize="28dp"
         app:layout_constraintStart_toStartOf="@+id/imageView5"
         app:layout_constraintTop_toTopOf="@+id/imageView5" />
 
@@ -58,7 +59,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="12dp"
-        android:fontFamily="@font/kanit_medium"
+        android:fontFamily="@font/montserrat_medium"
         android:text="@string/language"
         android:textColor="@color/white"
         android:textSize="25dp"
@@ -68,25 +69,29 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/settingsLanguages"
         style="@style/Widget.Material3.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
+        android:layout_width="170dp"
+        android:layout_height="70dp"
         android:layout_centerInParent="true"
+        android:layout_marginEnd="25dp"
         app:boxCornerRadiusBottomEnd="10sp"
         app:boxCornerRadiusBottomStart="10sp"
         app:boxCornerRadiusTopEnd="10sp"
         app:boxCornerRadiusTopStart="10sp"
         app:boxStrokeWidth="0sp"
-        android:layout_marginEnd="25dp"
         app:boxStrokeWidthFocused="0sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2">
+        app:layout_constraintTop_toTopOf="@+id/textView3">
 
         <com.google.android.material.textfield.MaterialAutoCompleteTextView
             android:id="@+id/settingsLanguagesList"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:inputType="none"
             android:background="@color/pink"
+            android:fontFamily="@font/montserrat_medium"
+            android:inputType="none"
+            android:textColor="@color/purple"
+            android:textSize="18dp"
             app:simpleItems="@array/languages" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -96,10 +101,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="40dp"
-        android:fontFamily="@font/kanit_bold"
+        android:fontFamily="@font/montserrat_bold"
         android:text="@string/information"
         android:textColor="@color/white"
-        android:textSize="30dp"
+        android:textSize="28dp"
         app:layout_constraintStart_toStartOf="@+id/imageView5"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
@@ -109,10 +114,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="12dp"
-        android:fontFamily="@font/kanit_medium"
+        android:fontFamily="@font/montserrat_medium"
         android:text="@string/username"
         android:textColor="@color/white"
-        android:textSize="25dp"
+        android:textSize="22dp"
         app:layout_constraintStart_toStartOf="@+id/imageView5"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
@@ -121,11 +126,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:fontFamily="@font/kanit_medium"
+        android:layout_marginEnd="30dp"
+        android:fontFamily="@font/montserrat_medium"
         android:text="@string/language"
         android:textColor="@color/purple"
-        android:textSize="25dp"
-        android:layout_marginEnd="30dp"
+        android:textSize="22dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
@@ -134,11 +139,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:fontFamily="@font/kanit_medium"
+        android:layout_marginEnd="30dp"
+        android:fontFamily="@font/montserrat_medium"
         android:text="@string/language"
         android:textColor="@color/purple"
-        android:textSize="25dp"
-        android:layout_marginEnd="30dp"
+        android:textSize="22dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
@@ -148,10 +153,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="12dp"
-        android:fontFamily="@font/kanit_medium"
+        android:fontFamily="@font/montserrat_medium"
         android:text="@string/password"
         android:textColor="@color/white"
-        android:textSize="25dp"
+        android:textSize="22dp"
         app:layout_constraintStart_toStartOf="@+id/imageView5"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
@@ -170,42 +175,17 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:clickable="false"
-        android:fontFamily="@font/kanit_medium"
+        android:fontFamily="@font/montserrat_medium"
         android:includeFontPadding="false"
         android:text="@string/change_password"
         android:textColor="@color/purple"
-        android:textSize="25dp"
+        android:textSize="22dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/settingsChangePasswordButton"
         app:layout_constraintEnd_toEndOf="@+id/settingsChangePasswordButton"
         app:layout_constraintStart_toStartOf="@+id/settingsChangePasswordButton"
         app:layout_constraintTop_toTopOf="@+id/settingsChangePasswordButton" />
 
-    <ImageButton
-        android:id="@+id/settingsChangeUsernameButton"
-        android:layout_width="330dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/field"
-        app:layout_constraintTop_toBottomOf="@id/settingsChangePasswordButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:clickable="false"
-        android:fontFamily="@font/kanit_medium"
-        android:includeFontPadding="false"
-        android:text="@string/change_username"
-        android:textColor="@color/purple"
-        android:textSize="25dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/settingsChangeUsernameButton"
-        app:layout_constraintEnd_toEndOf="@+id/settingsChangeUsernameButton"
-        app:layout_constraintStart_toStartOf="@+id/settingsChangeUsernameButton"
-        app:layout_constraintTop_toTopOf="@+id/settingsChangeUsernameButton" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

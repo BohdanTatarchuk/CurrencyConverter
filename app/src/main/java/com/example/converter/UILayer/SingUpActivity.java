@@ -2,6 +2,7 @@ package com.example.converter.UILayer;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.EditText;
@@ -24,8 +25,14 @@ public class SingUpActivity extends AppCompatActivity {
     private final Context context = SingUpActivity.this;
 
     String name;
-
     String pass;
+
+    private static final String PREFS_NAME = "preferences";
+    private static final String PREF_UNAME = "Username";
+    private static final String PREF_PASSWORD = "Password";
+
+    private final String defaultUnameValue = "";
+    private final String defaultPasswordValue = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +48,8 @@ public class SingUpActivity extends AppCompatActivity {
         ImageView button = findViewById(R.id.registerSingUpButton);
         EditText passwordField = findViewById(R.id.registerPasswordField);
         EditText usernameField = findViewById(R.id.registerUsernameField);
+
+        loadPreferences();
 
         button.setOnClickListener(view -> {
             if (passwordField.getText().toString().isEmpty() ||
@@ -67,6 +76,7 @@ public class SingUpActivity extends AppCompatActivity {
                 new UserRegistration(pass, name).execute();
                 Toast.makeText(context, R.string.success_register, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(context, MainActivity.class);
+                savePreferences();
                 startActivity(intent);
            }
         }
@@ -76,7 +86,7 @@ public class SingUpActivity extends AppCompatActivity {
 
     public boolean checkPassword(String password) {
         if (password.length() < 8) {
-            Toast.makeText(context, R.string.error_register, Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, R.string.password_is_too_short, Toast.LENGTH_SHORT).show();
             return false;
         }
         if (password.length() > 16) {
@@ -114,5 +124,46 @@ public class SingUpActivity extends AppCompatActivity {
         }
 
         return false;
+    }
+
+    private void loadPreferences() {
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME,
+                Context.MODE_PRIVATE);
+
+        EditText passwordFiled = findViewById(R.id.registerPasswordField);
+        EditText usernameFiled = findViewById(R.id.registerUsernameField);
+
+        name = settings.getString(PREF_UNAME, defaultUnameValue);
+        pass = settings.getString(PREF_PASSWORD, defaultPasswordValue);
+
+        passwordFiled.setText(pass);
+        usernameFiled.setText(name);
+
+        Log.e("Load name", name);
+        Log.e("Load password", pass);
+    }
+
+    private void savePreferences() {
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME,
+                Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = settings.edit();
+
+        Log.e("Saved name", name);
+        Log.e("Saved password", pass);
+        editor.putString(PREF_UNAME, name);
+        editor.putString(PREF_PASSWORD, pass);
+        editor.apply();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        savePreferences();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        loadPreferences();
     }
 }

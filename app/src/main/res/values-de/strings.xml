@@ -8,16 +8,26 @@
     <string name="sign_in">Anmelden</string>
     <string name="username">Benutzername</string>
     <string name="password">Kennwort</string>
+    <string name="password_error">Falsches Kennwort!</string>
+    <string name="user_not_exists">Der Benutzer mit diesem Benutzernamen existiert nicht</string>
 
     <!-- Sing up activity -->
     <string name="app_name">Currency Converter</string>
     <string name="sign_up_capital">Registrieren</string>
-    <string name="error_empty">Dieses Feld darf nicht leer sein!</string>
+    <string name="error_register">Der Benutzer existiert bereits!</string>
+    <string name="success_register">Erfolgreiche Registrierung</string>
+    <string name="password_is_too_long">Das Kennwort ist zu lang</string>
+    <string name="password_is_too_short">Das Kennwort ist zu kurz</string>
+    <string name="no_lower_case_characters">Keine Kleinbuchstaben</string>
+    <string name="no_upper_case_characters">Keine Großbuchstaben</string>
+    <string name="no_numbers">Keine Zahlen</string>
+    <string name="no_special_characters">Keine Sonderzeichen</string>
 
     <!-- Main activity -->
     <string name="rate">Konversionsrate</string>
     <string name="history">Deine Anfragen</string>
     <string name="error_select">Währungen auswählen und einen Betrag eingeben</string>
+    <string name="error_empty">Dieses Feld darf nicht leer sein!</string>
 
     <!-- Settings activity -->
     <string name="general">Allgemeine</string>

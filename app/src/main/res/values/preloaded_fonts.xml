@@ -4,5 +4,8 @@
         <item>@font/kanit</item>
         <item>@font/kanit_bold</item>
         <item>@font/kanit_medium</item>
+        <item>@font/montserrat_bold</item>
+        <item>@font/montserrat_light</item>
+        <item>@font/montserrat_medium</item>
     </array>
 </resources>
