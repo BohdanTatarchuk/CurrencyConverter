@@ -3,4 +3,8 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
+    <!-- Text size -->
+    <dimen name="settings_first">25sp</dimen>
+    <dimen name="settings_second">20sp</dimen>
+
 </resources>

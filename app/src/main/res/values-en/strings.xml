@@ -37,4 +37,8 @@
     <string name="change_username">change username</string>
     <string name="settings">Settings</string>
 
+    <!-- Change password activity -->
+    <string name="new_password">new password</string>
+    <string name="one_more_time">one more time</string>
+    <string name="mismatch">passwords don\'t match</string>
 </resources>

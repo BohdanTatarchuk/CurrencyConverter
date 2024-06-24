@@ -36,4 +36,9 @@
     <string name="change_password">змінити пароль</string>
     <string name="change_username">змінити ім\'я користувача</string>
     <string name="settings">Налаштування</string>
+
+    <!-- Change password activity -->
+    <string name="new_password">новий пароль</string>
+    <string name="one_more_time">ще раз</string>
+    <string name="mismatch">паролі не збігаються</string>
 </resources>

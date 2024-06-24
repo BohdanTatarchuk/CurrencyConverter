@@ -36,4 +36,9 @@
     <string name="change_password">Kennworh ändern</string>
     <string name="change_username">Benutzername ändern</string>
     <string name="settings">Einstellungen</string>
+
+    <!-- Change password activity -->
+    <string name="new_password">neues Kennwort</string>
+    <string name="one_more_time">noch ein Mal</string>
+    <string name="mismatch">stimmt nicht überein</string>
 </resources>

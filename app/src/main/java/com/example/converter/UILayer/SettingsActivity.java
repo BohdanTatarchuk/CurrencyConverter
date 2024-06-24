@@ -45,10 +45,8 @@ public class SettingsActivity extends AppCompatActivity {
         });
 
         ImageButton backButton = findViewById(R.id.settingsBackButton);
+        ImageButton changePasswordButton = findViewById(R.id.settingsChangePasswordButton);
         MaterialAutoCompleteTextView languagesList = findViewById(R.id.settingsLanguagesList);
-
-        TextView passwordText = findViewById(R.id.settingsPassword);
-        TextView usernameText = findViewById(R.id.settingsUsername);
 
         loadPreferences();
 
@@ -56,6 +54,11 @@ public class SettingsActivity extends AppCompatActivity {
 
         backButton.setOnClickListener(view -> {
             Intent intent = new Intent(context, MainActivity.class);
+            startActivity(intent);
+        });
+
+        changePasswordButton.setOnClickListener(view -> {
+            Intent intent = new Intent(context, ChangePasswordActivity.class);
             startActivity(intent);
         });
 

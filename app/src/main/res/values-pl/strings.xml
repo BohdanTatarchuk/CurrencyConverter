@@ -36,4 +36,9 @@
     <string name="change_password">Zmiana hasła</string>
     <string name="change_username">Zmiana nazwy użytkownika</string>
     <string name="settings">Ustawienia</string>
+
+    <!-- Change password activity -->
+    <string name="new_password">nowe hasło</string>
+    <string name="one_more_time">jeszcze raz</string>
+    <string name="mismatch">hasła nie są zgodne</string>
 </resources>
