@@ -46,6 +46,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         ImageButton backButton = findViewById(R.id.settingsBackButton);
         ImageButton changePasswordButton = findViewById(R.id.settingsChangePasswordButton);
+        ImageButton logOutButton = findViewById(R.id.settingsLogOutButton);
         MaterialAutoCompleteTextView languagesList = findViewById(R.id.settingsLanguagesList);
 
         loadPreferences();
@@ -59,6 +60,13 @@ public class SettingsActivity extends AppCompatActivity {
 
         changePasswordButton.setOnClickListener(view -> {
             Intent intent = new Intent(context, ChangePasswordActivity.class);
+            startActivity(intent);
+        });
+
+        logOutButton.setOnClickListener(view -> {
+            clearPreferences();
+
+            Intent intent = new Intent(context, LoginActivity.class);
             startActivity(intent);
         });
 
@@ -101,8 +109,6 @@ public class SettingsActivity extends AppCompatActivity {
         passwordText.setText(pass);
         usernameText.setText(name);
 
-        Log.e("Load name", name);
-        Log.e("Load password", pass);
     }
 
     private void savePreferences() {
@@ -110,10 +116,17 @@ public class SettingsActivity extends AppCompatActivity {
                 Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = settings.edit();
 
-        Log.e("Saved name", name);
-        Log.e("Saved password", pass);
-        editor.putString(PREF_UNAME, name);
-        editor.putString(PREF_PASSWORD, pass);
+        editor.apply();
+    }
+
+    private void clearPreferences() {
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME,
+                Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = settings.edit();
+
+        editor.remove(PREF_UNAME);
+        editor.remove(PREF_PASSWORD);
+
         editor.apply();
     }
 

@@ -3,6 +3,9 @@ package com.example.converter.DataLayer;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import com.example.converter.DataLayer.CallbackInterfaces.UserLoginCallback;
+import com.example.converter.Utils.Utils;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -62,7 +65,7 @@ public class UserLogin extends AsyncTask<Void, Void, String> {
 
             Log.e("Received password: ", receivedPassword);
 
-            if (checkPassword(password, receivedPassword)) {
+            if (Utils.checkPassword(password, receivedPassword)) {
                 result = "true";
             } else {
                 result = "false";
@@ -82,9 +85,5 @@ public class UserLogin extends AsyncTask<Void, Void, String> {
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
         callback.onUserLoginComplete(result);
-    }
-
-    public boolean checkPassword(String passwordA, String passwordB) {
-        return passwordA.equals(passwordB);
     }
 }

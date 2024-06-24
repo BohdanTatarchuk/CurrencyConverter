@@ -19,6 +19,7 @@ import com.example.converter.DataLayer.UserLogin;
 import com.example.converter.DataLayer.UserRegistration;
 import com.example.converter.DataLayer.UserRepository;
 import com.example.converter.R;
+import com.example.converter.Utils.Utils;
 
 public class SingUpActivity extends AppCompatActivity {
 
@@ -72,7 +73,7 @@ public class SingUpActivity extends AppCompatActivity {
         if (exists) {
             Toast.makeText(context, R.string.error_register, Toast.LENGTH_SHORT).show();
         } else {
-            if (checkPassword(pass)) {
+            if (Utils.checkPassword(pass, context)) {
                 new UserRegistration(pass, name).execute();
                 Toast.makeText(context, R.string.success_register, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(context, MainActivity.class);
@@ -84,47 +85,6 @@ public class SingUpActivity extends AppCompatActivity {
         Log.e("exists", String.valueOf(exists));
     }
 
-    public boolean checkPassword(String password) {
-        if (password.length() < 8) {
-            Toast.makeText(context, R.string.password_is_too_short, Toast.LENGTH_SHORT).show();
-            return false;
-        }
-        if (password.length() > 16) {
-            Toast.makeText(context, R.string.password_is_too_long, Toast.LENGTH_SHORT).show();
-            return false;
-        }
-
-        boolean lowerChars = false;
-        boolean upperChars = false;
-        boolean specialChars = false;
-        boolean numbers = false;
-
-        for (int i = 0; i < password.length(); i++) {
-            char test = password.charAt(i);
-            if (Character.isLowerCase(test)) lowerChars = true;
-            if (Character.isUpperCase(test)) upperChars = true;
-            if (Character.isDigit(test)) numbers = true;
-            if (test >= 33 && test <= 47 || test >= 58 && test <= 64 || test >= 91 && test <= 96 || test >= 123 && test <= 126)
-                specialChars = true;
-        }
-        if (lowerChars && upperChars && numbers && specialChars) {
-            return true;
-        }
-        if (!lowerChars) {
-            Toast.makeText(context, R.string.no_lower_case_characters, Toast.LENGTH_SHORT).show();
-        }
-        if (!upperChars) {
-            Toast.makeText(context, R.string.no_upper_case_characters, Toast.LENGTH_SHORT).show();
-        }
-        if (!numbers) {
-            Toast.makeText(context, R.string.no_numbers, Toast.LENGTH_SHORT).show();
-        }
-        if (!specialChars) {
-            Toast.makeText(context, R.string.no_special_characters, Toast.LENGTH_SHORT).show();
-        }
-
-        return false;
-    }
 
     private void loadPreferences() {
         SharedPreferences settings = getSharedPreferences(PREFS_NAME,

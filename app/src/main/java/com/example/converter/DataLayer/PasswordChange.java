@@ -16,12 +16,12 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
-public class UserRegistration extends AsyncTask<Void, Void, String> {
+public class PasswordChange extends AsyncTask<Void, Void, String> {
 
     private final String username;
     private final String password;
 
-    public UserRegistration(String password, String username) {
+    public PasswordChange(String password, String username) {
         this.password = password;
         this.username = username;
     }
@@ -33,9 +33,9 @@ public class UserRegistration extends AsyncTask<Void, Void, String> {
         BufferedReader reader = null;
 
         try {
-            URL url = new URL("https://currencyconverterserver.azurewebsites.net/api/v1/users/save");
+            URL url = new URL("https://currencyconverterserver.azurewebsites.net/api/v1/users/updateByLogin=" + username);
             connection = (HttpURLConnection) url.openConnection();
-            connection.setRequestMethod("POST");
+            connection.setRequestMethod("PUT");
             connection.setRequestProperty("Content-Type", "application/json");
             connection.setDoOutput(true);
 
@@ -52,7 +52,7 @@ public class UserRegistration extends AsyncTask<Void, Void, String> {
             writer.close();
             out.close();
 
-            connection.connect(); // Connect to the server
+            connection.connect();
 
             int code = connection.getResponseCode();
             Log.e("Connection code: ", String.valueOf(code));

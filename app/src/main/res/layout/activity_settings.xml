@@ -186,4 +186,31 @@
         app:layout_constraintStart_toStartOf="@+id/settingsChangePasswordButton"
         app:layout_constraintTop_toTopOf="@+id/settingsChangePasswordButton" />
 
+    <ImageButton
+        android:id="@+id/settingsLogOutButton"
+        android:layout_width="330dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/field"
+        app:layout_constraintTop_toBottomOf="@id/settingsChangePasswordButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:clickable="false"
+        android:fontFamily="@font/montserrat_medium"
+        android:includeFontPadding="false"
+        android:text="@string/log_out"
+        android:textColor="@color/purple"
+        android:textSize="@dimen/settings_second"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/settingsLogOutButton"
+        app:layout_constraintEnd_toEndOf="@+id/settingsLogOutButton"
+        app:layout_constraintStart_toStartOf="@+id/settingsLogOutButton"
+        app:layout_constraintTop_toTopOf="@+id/settingsLogOutButton" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

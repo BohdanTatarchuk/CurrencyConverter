@@ -3,6 +3,8 @@ package com.example.converter.DataLayer;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import com.example.converter.DataLayer.CallbackInterfaces.UserLoginCallback;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,7 +16,6 @@ public class UserRepository extends AsyncTask<Void, Void, String> {
 
     private final UserLoginCallback callback;
     private final String username;
-
 
     public UserRepository(UserLoginCallback callback, String username) {
         this.callback = callback;

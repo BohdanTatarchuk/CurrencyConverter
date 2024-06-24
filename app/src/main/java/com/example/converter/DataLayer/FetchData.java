@@ -2,9 +2,8 @@ package com.example.converter.DataLayer;
 
 import android.os.AsyncTask;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.example.converter.DataLayer.CallbackInterfaces.FetchDataCallback;
+import com.example.converter.Utils.Utils;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,7 +12,6 @@ import java.io.InputStreamReader;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.text.DecimalFormat;
 
 public class FetchData extends AsyncTask<Void, Void, String> {
 
@@ -47,18 +45,12 @@ public class FetchData extends AsyncTask<Void, Void, String> {
             throw new RuntimeException(e);
         }
 
-        return round(data);
+        return Utils.round(data);
     }
 
     @Override
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
         callback.onFetchDataComplete(result);
-    }
-
-    public static String round(String number){
-        double res = Double.parseDouble(number);
-        DecimalFormat df = new DecimalFormat("#.###");
-        return df.format(res);
     }
 }

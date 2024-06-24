@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                 String currencyB = autoCompleteB.getText().toString();
                 double amount = Double.parseDouble(inputField.getText().toString());
 
-                FetchData fetchData = new FetchData(data -> resultText.setText(data), currencyA, currencyB, amount);
+                FetchData fetchData = new FetchData(resultText::setText, currencyA, currencyB, amount);
                 fetchData.execute();
             }
         });
