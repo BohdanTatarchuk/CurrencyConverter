@@ -73,7 +73,7 @@ public class SingUpActivity extends AppCompatActivity {
         if (exists) {
             Toast.makeText(context, R.string.error_register, Toast.LENGTH_SHORT).show();
         } else {
-            if (Utils.checkPassword(pass, context)) {
+            if (Utils.isLatinLetter(name, context) && Utils.checkPassword(pass, context) ) {
                 new UserRegistration(pass, name).execute();
                 Toast.makeText(context, R.string.success_register, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(context, MainActivity.class);

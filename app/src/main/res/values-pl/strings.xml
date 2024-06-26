@@ -13,6 +13,7 @@
 
     <!-- Sing up activity -->
     <string name="app_name">Currency Converter</string>
+    <string name="name_error">Nazwa użytkownika może zawierać tylko znaki alfabetu łacińskiego i cyfry</string>.
     <string name="sign_up_capital">Rejestr</string>
     <string name="error_register">Użytkownik już istnieje!</string>
     <string name="success_register">Pomyślna rejestracja </string>

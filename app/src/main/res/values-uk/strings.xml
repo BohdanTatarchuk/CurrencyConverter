@@ -13,6 +13,7 @@
 
     <!-- Sing up activity -->
     <string name="app_name">Currency Converter</string>
+    <string name="name_error">Ім\'я користувача може містити лише латинські символи та цифри</string>
     <string name="sign_up_capital">Зареєструватися</string>
     <string name="error_register">Користувач вже існує!</string>
     <string name="success_register">Успішна реєстрація</string>

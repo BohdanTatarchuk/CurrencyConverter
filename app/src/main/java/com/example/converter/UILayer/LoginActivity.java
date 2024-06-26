@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.EditText;
@@ -21,17 +22,18 @@ import com.example.converter.DataLayer.UserLogin;
 import com.example.converter.DataLayer.UserRepository;
 import com.example.converter.R;
 
+import java.util.Locale;
+
 public class LoginActivity extends AppCompatActivity {
 
     String pass;
     String name;
+    String language;
 
     private static final String PREFS_NAME = "preferences";
     private static final String PREF_UNAME = "Username";
     private static final String PREF_PASSWORD = "Password";
-
-    private final String defaultUnameValue = "";
-    private final String defaultPasswordValue = "";
+    private static final String PREF_LANGUAGE = "Language";
 
     Context context = LoginActivity.this;
 
@@ -53,6 +55,9 @@ public class LoginActivity extends AppCompatActivity {
         EditText usernameFiled = findViewById(R.id.loginUsernameField);
 
         loadPreferences();
+
+        passwordFiled.setText(pass);
+        usernameFiled.setText(name);
 
         buttonSingUp.setOnClickListener(view -> {
             Intent intent = new Intent(context, SingUpActivity.class);
@@ -116,17 +121,16 @@ public class LoginActivity extends AppCompatActivity {
         SharedPreferences settings = getSharedPreferences(PREFS_NAME,
                 Context.MODE_PRIVATE);
 
-        EditText passwordFiled = findViewById(R.id.loginPasswordField);
-        EditText usernameFiled = findViewById(R.id.loginUsernameField);
-
+        String defaultUnameValue = "";
         name = settings.getString(PREF_UNAME, defaultUnameValue);
+
+        String defaultPasswordValue = "";
         pass = settings.getString(PREF_PASSWORD, defaultPasswordValue);
 
-        passwordFiled.setText(pass);
-        usernameFiled.setText(name);
+        String defaultLanguage = "";
+        language = settings.getString(PREF_LANGUAGE, defaultLanguage);
+        setLocale(language);
 
-        Log.e("Load name", name);
-        Log.e("Load password", pass);
     }
 
     @Override
@@ -139,5 +143,14 @@ public class LoginActivity extends AppCompatActivity {
     public void onResume() {
         super.onResume();
         loadPreferences();
+    }
+
+    private void setLocale(String languageCode) {
+        Locale locale = new Locale(languageCode);
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getBaseContext().getResources().updateConfiguration(config,
+                getBaseContext().getResources().getDisplayMetrics());
     }
 }

@@ -141,7 +141,7 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="30dp"
         android:fontFamily="@font/montserrat_medium"
-        android:text="@string/language"
+        android:text="@string/hidden_password"
         android:textColor="@color/purple"
         android:textSize="@dimen/settings_second"
         app:layout_constraintEnd_toEndOf="parent"
@@ -211,6 +211,16 @@
         app:layout_constraintEnd_toEndOf="@+id/settingsLogOutButton"
         app:layout_constraintStart_toStartOf="@+id/settingsLogOutButton"
         app:layout_constraintTop_toTopOf="@+id/settingsLogOutButton" />
+
+    <ImageView
+        android:id="@+id/settingsShowButton"
+        android:layout_marginRight="3dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/settingsPassword"
+        app:layout_constraintEnd_toStartOf="@+id/settingsPassword"
+        app:layout_constraintTop_toTopOf="@+id/settingsPassword"
+        app:srcCompat="@drawable/baseline_remove_red_eye_24" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

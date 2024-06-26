@@ -63,4 +63,15 @@ public class Utils {
     public static boolean checkPassword(String passwordA, String passwordB) {
         return passwordA.equals(passwordB);
     }
+
+    public static boolean isLatinLetter(String word, Context context) {
+        for (int i = 0; i < word.length(); i++) {
+            char c = word.charAt(i);
+            if (!((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9'))) {
+                Toast.makeText(context, R.string.name_error, Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        }
+        return true;
+    }
 }
